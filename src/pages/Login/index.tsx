@@ -10,13 +10,13 @@ export const Login = () => {
   const auth = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const manejarLogar = async (e) => {
+  const manejarLogar = async (e:any) => {
     e.preventDefault();
     if (cnpj && email && senha) {
       try {
         const logado = await auth.logar(email, senha, cnpj);
         if (logado) navigate("/");
-      } catch (error ) {
+      } catch (error : any ) {
         const statusErr = error.request.status
         if(statusErr === 401) alert('Sem autorização')
         if(error)
