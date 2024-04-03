@@ -7,7 +7,7 @@ const api = axios.create({
 
 export const useApi = () =>({
     validarToken: async (token: string) =>{
-      api.interceptors.request.use((config) =>{
+      api.interceptors.request.use((config :any) =>{
       config.headers.Authorization = `Bearer ${token}`
       })
       const response = await api.get('/users/user')
