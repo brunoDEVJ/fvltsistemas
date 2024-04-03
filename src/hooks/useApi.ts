@@ -5,12 +5,16 @@ const api = axios.create({
   // baseURL: process.env.REACT_APP_API_KEY,
 })
 
+
 export const useApi = () =>({
     validarToken: async (token: string) =>{
-      api.interceptors.request.use((config :any) =>{
-      config.headers.Authorization = `Bearer ${token}`
+      const api2 = axios.create({
+        baseURL: "https://backend-vltsistemas.onrender.com",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       })
-      const response = await api.get('/users/user')
+      const response = await api2.get('/users/user')
       return response.data
     },
     logar: async (email: string , senha: string, cnpj: string  ) =>{
