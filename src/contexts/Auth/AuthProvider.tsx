@@ -12,6 +12,7 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
     if(data.email && data.access_token){
       setUsuario(data.email)
+      setToken(data.access_token)
       return true
     }
     return false
@@ -19,6 +20,11 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
   const deslogar = async () => {
     setUsuario(null)
   };
+
+  const setToken = (token: string) => {
+    localStorage.setItem('AuthToken', token);
+  }
+
 
   return (
     <AuthContext.Provider value={{ usuario, logar, deslogar }}>
