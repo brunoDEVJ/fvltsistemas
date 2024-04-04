@@ -11,8 +11,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <AuthProvider>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}></Route>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="fvltsistemas.vercel.app/" element={<App />}></Route>
+        <Route path="fvltsistemas.vercel.app/login" element={<Login />}></Route>
       </Routes>
       </BrowserRouter>
     </AuthProvider>
